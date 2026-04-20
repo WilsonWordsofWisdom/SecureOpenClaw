@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 install.py — OpenClaw safety guardrails installer
-https://github.com/you/your-repo
+https://github.com/WilsonWordsofWisdom/SecureOpenClaw/
 
 Behaviour
 ---------
