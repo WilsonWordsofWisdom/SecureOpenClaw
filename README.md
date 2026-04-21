@@ -1,5 +1,5 @@
 # SecureOpenClaw
-Additional security controls and safety guardrails md files for openclaw workspace
+Additional security controls and safety guardrails md files for openclaw main workspace (for single agent setup)
 
 Instructions:
 1) run the following commands in your CLI:
