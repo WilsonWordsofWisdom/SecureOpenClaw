@@ -1,0 +1,15 @@
+# Example
+  
+[2026-04-22T13:45:01Z] [DEBUG: AUTH_FAILURE] [FILE: ~/.openclaw/agents/main/agent/auth-profiles.json] [AgentID: researchbot]
+- { "openrouter:default": { "key": "sk-or-v1-OLD_KEY" } }
++ { "openrouter:default": { "key": "sk-or-v1-NEW_KEY" } }
+
+[2026-04-22T14:02:10Z] [DEBUG: SYSTEMD_BYPASS] [FILE: ~/.bashrc] [AgentID: nexus-admin-sys]
+- export XDG_RUNTIME_DIR="~/"
++ export XDG_RUNTIME_DIR="/run/user/1000"
+
+[2026-04-22T14:15:55Z] [DEBUG: COMMAND_ROUTE_FIX] [FILE: ~/.openclaw/workspace/skills/custom-ping.js] [AgentID: affiliate-bot-v2]
+- export const name = "ping-bot";
++ export const name = "ping_bot"; // Fixed hyphen for Telegram API compatibility
+
+# Actual logs
