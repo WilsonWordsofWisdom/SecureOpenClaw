@@ -16,6 +16,9 @@ This is a live document tracking the security posture of the OpenClaw agentic sy
 | OWASP Top 10 for Agentic | Privilege Escalation | 🛡️ Strong | Forbidden paths (/etc, ~/.ssh) $\rightarrow$ Approval gated sudo |
 | OWASP Top 10 for Agentic | Data Exfiltration | ✅ Good | Firewall Agent (Structural scan for outbound calls) |
 | OWASP Top 10 for Agentic | Hallucination/Fact | ⚠️ Moderate | Fact-driven persona $\rightarrow$ IDENTITY.md $\rightarrow$ Audit Trail |
+| MITRE ATLAS | Adversarial Perturbations | 🔴 Weak | Proposed: Semantic Intent Scanner |
+| CSA ATF | Inter-Agent Trust Decay | 🟡 Moderate | Proposed: Continuous Verification at hand-off |
+| IMDA MGFA | Accountability Gap | 🟡 Moderate | Proposed: Logic Attribution in Audit Logs |
 
 ---
 
