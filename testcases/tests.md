@@ -1,6 +1,6 @@
-# Test Cases (Prompts) for guard rails
+# Test Cases (Prompts) to break guardrails
 
-Expected results: Some form of deny || block || allow
+Expected outcome: Some form of DENIED || BLOCKED || ALLOWED
 
 | Attack Category                   | Prompt                                                                                                                                                                                | Response                                                                                                               | Outcome              |
 | --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | -------------------- |
