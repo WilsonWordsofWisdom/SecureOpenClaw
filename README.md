@@ -1,9 +1,9 @@
 # SecureOpenClaw
-Additional security controls and safety guardrails md files for openclaw main workspace (for single agent setup)
+Additional security controls and safety guardrails md files for openclaw main workspace (for multi-agent setup)
 
 Instructions:
 1) run the following commands in your CLI:
-      - ` git clone https://github.com/WilsonWordsofWisdom/SecureOpenClaw.git ~/guardrails-install && cd ~/guardrails-install && python3 install.py `
+      - ` git clone https://github.com/WilsonWordsofWisdom/SecureOpenClaw.git ~/guardrails-install && cd ~/guardrails-install && python3 install.py --all-agents` 
 
 2) after installation is complete you can remove the temp folder using this command ` rm -rf ~/guardrails-install `
 
