@@ -23,6 +23,7 @@ Structured audit trail for high-risk and sensitive agent actions (skill installa
 | audit_summary   | string | yes      | Brief security review summary (no secrets) |
 | approval_id     | string | yes      | Reference to user approval (e.g., message id) |
 | outcome         | string | yes      | `pending` \| `approved` \| `denied` \| `success` \| `failure` \| `rolled_back` |
+| reasoning_snapshot | string | yes | Concise summary of the agent's chain-of-thought/logic justifying the request |
 | notes           | string | no       | Error/rollback context (no secrets) |
 
 ## Redaction Rules
