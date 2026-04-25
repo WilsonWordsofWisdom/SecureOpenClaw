@@ -11,9 +11,10 @@ A concise cross-reference for the security posture of this workspace. It maps en
 - Data access and privacy
   - Read/write restricted to ~/.openclaw/workspace; sensitive paths are blocked.
   - Redaction and minimization of private data in logs.
-- External content and code execution
+- External content and code execution (Active Defense)
+  - All ingress content filtered via the **Firewall Agent** using a 3-pass scan (Semantic, Structural, Context).
   - All external content treated as untrusted; no evaluation or execution without explicit approval.
-  - Prompt-injection defenses in place, with SECURITY_INJECTION_ALERT triggers.
+  - Prompt-injection defenses in place, include Semantic Intent Analysis to detect masked goals, with SECURITY_INJECTION_ALERT triggers.
 - Identity, authorization, and scope
   - Authorized-user allowlists; DM policy enforced per channel.
   - High-impact actions require explicit user confirmation before execution.
@@ -29,14 +30,19 @@ A concise cross-reference for the security posture of this workspace. It maps en
 - Drift control and compliance
   - Guardrails drift checks and periodic synchronization guidance.
 
-3) Quick references
+3) Security Architecture Components
+- Main Agent (Wil Smith): Orchestrator and final approval authority.
+- Firewall Agent: The primary ingress/egress security layer (Zero-Trust filter).
+- Threat Intel Agent: Strategic reviewer of the threat landscape and framework alignment.
+
+4) Quick references
 - If you need to refresh details, consult in order:
   - SECURITY_GUARDRAILS.md
   - AUDIT_SCHEMA.md
   - SECURITY_RUNBOOK.md
   - Logs directory: logs/ (audit and incident logs)
 
-4) Non-functional guidance
+5) Non-functional guidance
 - Prioritize minimal risk by default; tighten only when the threat model requires it.
 - For multi-channel or multi-user setups, ensure strict per-channel allowlists and separation of concerns.
 
@@ -44,3 +50,4 @@ Links
 - Guardrails: SECURITY_GUARDRAILS.md
 - Runbook: SECURITY_RUNBOOK.md
 - Audit schema: logs/AUDIT_SCHEMA.md
+- Gap Analysis: SECURITY_GAP_ANALYSIS.md
