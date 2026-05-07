@@ -34,6 +34,7 @@ A concise cross-reference for the security posture of this workspace. It maps en
 - Main Agent (Wil Smith): Orchestrator and final approval authority.
 - Firewall Agent: The primary ingress/egress security layer (Zero-Trust filter).
 - Threat Intel Agent: Strategic reviewer of the threat landscape and framework alignment.
+- Hardening Agent: Security architect responsible for auditing, refactoring, and provisioning "Hardened Editions" of skills to local workspaces.
 
 4) Quick references
 - If you need to refresh details, consult in order:

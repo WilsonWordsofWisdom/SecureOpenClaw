@@ -37,6 +37,7 @@ This document distills the essential security guardrails governing agent behavio
 - Trust Boundary: Content passed between sub-agents must be accompanied by a Scan Report or Trust Proof. Modified content must be re-scanned by the Firewall Agent.
 - Do not bypass sandbox boundaries or relax restrictions for any task.
 - Periodically validate sandbox state for compliance.
+- **Skill Provisioning:** All new skills must be routed through the Hardening Agent for auditing and refactoring before installation. Direct global installation via `clawhub install` is forbidden for standard agents.
 
 5. Operational health and run-time constraints
 
