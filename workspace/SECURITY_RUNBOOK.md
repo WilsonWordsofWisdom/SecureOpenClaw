@@ -32,5 +32,10 @@ Scope: Quick-start guide for handling security incidents or anomalous behavior d
 - Update SECURITY_GUARDRAILS.md and AGENTS.md if policy drift is identified or new mitigations are required.
 - Update SECURITY_GAP_ANALYSIS.md if a new attack vector was exploited.
 
-6) Communications
-- Notify stakeholders as appropriate, and ensure future communications reflect the incident, impact, and remediation plan.
+6) Provisioning Failures
+- If the Hardening Agent issues a 🔴 BLOCKED verdict on a requested skill, the Main Agent must notify the user of the specific security risk and refuse installation.
+- Do not attempt to "force" installation of a blocked skill.
+- Appeal process: The user must provide a documented justification or a modified version of the skill for a second audit.
+
+7) Communications
+- Notify stakeholders as appropriate, and ensure future communications reflect the incident, the impact, and remediation plan.
