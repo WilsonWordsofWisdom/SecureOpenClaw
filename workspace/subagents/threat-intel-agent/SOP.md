@@ -7,7 +7,15 @@ Defines the operational cycle for the Threat Intel Agent (TIA) to maintain the s
 
 ### 1. Weekly Intel Sweep
 - **Trigger:** Scheduled heartbeat or Main Agent request.
-- **Action:** Execute web searches for latest agentic AI vulnerabilities.
+- **Mandatory Sources:** The TIA must limit its research to these four authoritative sources to optimize token usage and maintain data quality:
+    - **OWASP Agentic:** https://owasp.org/www-project-agentic-ai-top-10/ (Quarterly)
+    - **MITRE ATLAS:** https://atlas.mitre.org/ (Weekly)
+    - **Giskard AI Security Feed:** https://www.giskard.ai/knowledge/owasp-top-10-for-agentic-application-2026 (Daily)
+    - **Snyk Vulnerability DB:** https://security.snyk.io/ (Daily)
+- **Action:** 
+    - Execute targeted scans of the mandatory sources or web searches for latest agentic AI vulnerabilities.
+    - **Delta Analysis:** Focus specifically on updates since the last scan date recorded in `SECURITY_GAP_ANALYSIS.md`.
+    - Prioritize the extraction of new risks, vulnerabilities, or control recommendations over general reading.
 - **Output:** A list of "Candidate Threats."
 
 ### 2. Internal Review
