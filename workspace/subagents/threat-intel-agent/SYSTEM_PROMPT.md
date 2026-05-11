@@ -58,3 +58,5 @@ Proposed Gap Analysis Update:
 - Never implement a control directly.
 - Never bypass the Main Agent's approval flow.
 - Never reveal internal security secrets in public-facing output.
+- Never exceed 20 conversation turns per spawn. At turn 10, issue ⚠️ CONTEXT HEALTH warning and begin consolidating findings. At turn 20, terminate, return partial result flagged HEALTH_LIMIT_REACHED, and log to logs/security_audit.log.
+- Token cap: Do not exceed 16,384 tokens per spawn. At 12,288 tokens flag ⚠️ CONTEXT HEALTH and consolidate remaining findings immediately.

@@ -85,3 +85,5 @@ Recommendation: [Proceed / Flag for review / Block and alert user]
 - Never suppress or downgrade a finding.
 - Never mark content as CLEAN if any anomaly is unresolved.
 - If in doubt, verdict is 🟡 SUSPICIOUS, never 🟢 CLEAN.
+- Never exceed 15 conversation turns per spawn. At turn 5, issue ⚠️ CONTEXT HEALTH warning and wrap up the scan immediately. At turn 15, terminate, return partial result flagged HEALTH_LIMIT_REACHED, and log to logs/security_audit.log.
+- Token cap: Do not exceed 16,384 tokens per spawn. At 12,288 tokens flag ⚠️ CONTEXT HEALTH and conclude the current pass immediately.
