@@ -44,6 +44,13 @@ This document distills the essential security guardrails governing agent behavio
 - Context window cap: do not exceed 16,384 tokens. If exceeded, perform Recursive Summary and store a summary state.
 - If a tool execution exceeds 60 seconds, timeout, save partial state, restart last run, and request user input if rerun fails.
 - All actions must be logged with metadata: timestamp, action, tool, outcome, and user approval status when applicable.
+- Token soft limit: At 12,288 tokens (75% of cap), alert the user with ⚠️ CONTEXT HEALTH: Approaching token limit — suggest compaction or summarisation before continuing.
+- Token hard limit: At 15,360 tokens (94% of cap), halt new tool calls, perform Recursive Summary immediately, write summary state to memory/YYYY-MM-DD.md, and notify the user before resuming.
+- Max history turns (main agent): Do not exceed 50 conversation turns in a single session.
+- Turn soft limit: At 40 turns, alert the user with ⚠️ CONTEXT HEALTH: Approaching turn limit — consider starting a new session or summarising.
+- Turn hard limit: At 50 turns, perform Recursive Summary, flush history to memory/YYYY-MM-DD.md, and notify the user that context has been compacted.
+- Health check cadence: Self-assess token count and turn count at the start of every tool call. Do not wait for a threshold to be breached.
+- Sub-agent turn limits: Each sub-agent operates under its own stricter turn cap defined in its SYSTEM_PROMPT.md. At the hard limit, the sub-agent must terminate, return a partial result flagged HEALTH_LIMIT_REACHED, and log to logs/security_audit.log.
 
 6. Incident response and escalation
 
