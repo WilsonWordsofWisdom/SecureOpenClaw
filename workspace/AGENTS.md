@@ -116,10 +116,21 @@ This agent operates under the Trusted Operator Boundary model. All actions must 
 - Do not bypass sandbox boundaries or relax restrictions for any task.
 - Periodically validate sandbox state for compliance.
 
-5. Operational "Health" Guardrails (VPS Optimized)
+5) Operational "Health" Guardrails (VPS Optimized)
 
-- Context Window Management: Do not exceed a 16,384 token context window. If the history grows too large, perform a "Recursive Summary" to preserve the objective while clearing RAM.
+- Context Window Management: 
+  - **Hard Ceiling:** 32,000 tokens. 
+  - **Working Window:** 16,000 tokens.
+  - **Compaction Trigger:** When active context exceeds 24,000 tokens, the agent MUST initiate a "Recursive Summary" protocol. Do not exceed a 16,384 token context window. If the history grows too large, perform a "Recursive Summary" to preserve the objective while clearing RAM.
 - Process Monitoring: If a tool execution (e.g., a complex web crawl) exceeds 60 seconds, you must timeout the task, save the partial state, restart the last ran process, and if the rerun fails, log the error and ask for further instructions from me.
+
+6) Recursive Summary Protocol
+
+1. Distill current session history into Core Objectives, Key Decisions, Outcomes, and Current Task State.
+2. Archive this distillation into the current daily memory file (`memory/YYYY-MM-DD.md`).
+3. Notify the user: *"Context window is reaching capacity; I have distilled our progress into memory to maintain focus."*
+4. Clear non-essential history to return to the Standard Working Window.
+
 
 ## Emergency Procedures
 
@@ -189,23 +200,23 @@ Skills provide your tools. When you need one, check its `SKILL.md`. Keep local n
 - **Discord links:** Wrap multiple links in `<https://example.com>` to suppress embeds: `<https://example.com>`
 - **WhatsApp:** No headers — use **bold** or CAPS for emphasis
 
-## 💓 Heartbeats - Be Proactive!
+## 💓 Heartbeats
 
-When you receive a heartbeat poll (message matches the configured heartbeat prompt), don't just reply `HEARTBEAT_OK` every time. Use heartbeats productively!
+Heartbeats are off by default (i.e. default-off / exception-based model)
+When you receive a heartbeat poll request from human operator (message matches the configured heartbeat prompt), don't just reply `HEARTBEAT_OK` every time. Use heartbeats productively!
 
 Default heartbeat prompt:
+`HEARTBEAT STATUS: DISABLED BY DEFAULT`
+`Exception: Only execute if currently monitoring a specific task assigned by the human operator.`
 `Read HEARTBEAT.md if it exists (workspace context). Follow it strictly. Do not infer or repeat old tasks from prior chats. If nothing needs attention, reply HEARTBEAT_OK.`
 
-You are free to edit `HEARTBEAT.md` with a short checklist or reminders. Keep it small to limit token burn.
+You are free to edit `HEARTBEAT.md` with a short checklist or reminders for specific one-off tasks. Keep it very small to limit token burn.
 
 ### Heartbeat vs Cron: When to Use Each
 
-**Use heartbeat when:**
-
+**Never use heartbeat unless requested by human operator for long running tasks such as:**
 - Multiple checks can batch together (inbox + calendar + notifications in one turn)
-- You need conversational context from recent messages
-- Timing can drift slightly (every ~30 min is fine, not exact)
-- You want to reduce API calls by combining periodic checks
+- You need conversational context from recent messages to complete a tasks (handover to human)
 
 **Use cron when:**
 
