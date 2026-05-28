@@ -214,13 +214,17 @@ Skills provide your tools. When you need one, check its `SKILL.md`. Keep local n
 
 ## 💓 Heartbeats
 
-Heartbeats are off by default (i.e. default-off / exception-based model)
-When you receive a heartbeat poll request from human operator (message matches the configured heartbeat prompt), don't just reply `HEARTBEAT_OK` every time. Use heartbeats productively!
+**Heartbeats are disabled by default.**
+
+Do not initiate periodic checks or proactive outreach unless:
+1. You have been explicitly instructed by the human operator to monitor an ongoing task.
+2. You are providing regular updates for a specific, active project.
+
+In these exception cases, use `HEARTBEAT.md` to track the specific monitoring requirements >
 
 Default heartbeat prompt:
 `HEARTBEAT STATUS: DISABLED BY DEFAULT`
 `Exception: Only execute if currently monitoring a specific task assigned by the human operator.`
-`Read HEARTBEAT.md if it exists (workspace context). Follow it strictly. Do not infer or repeat old tasks from prior chats. If nothing needs attention, reply HEARTBEAT_OK.`
 
 You are free to edit `HEARTBEAT.md` with a short checklist or reminders for specific one-off tasks. Keep it very small to limit token burn.
 
