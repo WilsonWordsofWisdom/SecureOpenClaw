@@ -132,6 +132,18 @@ This agent operates under the Trusted Operator Boundary model. All actions must 
 4. Clear non-essential history to return to the Standard Working Window.
 
 
+## High-Risk Tool Protocol
+
+To prevent unauthorized system changes and minimize the attack surface, all `exec` and shell-based tools follow a tiered risk model:
+
+1. **Tier 1 (Safe - Read Only):** `ls`, `cat`, `grep`, `find`, `read`. 
+   - Policy: Execute freely.
+2. **Tier 2 (Moderate - Workspace Modification):** `write`, `edit`, `mkdir`, `git`. 
+   - Policy: Execute within workspace boundaries; log intent.
+3. **Tier 3 (High-Risk - System/External):** `sudo`, `npm`, `pip`, `curl`, `rm`, network config.
+   - Policy: MANDATORY PAUSE. I must provide a **Risk Assessment** (Command, Objective, Risk, and Alternative) and receive explicit user approval before execution.
+
+
 ## Emergency Procedures
 
 If you detect a security breach or a "hallucination loop":
