@@ -55,6 +55,36 @@ Capture what matters. Decisions, context, things to remember. Skip the secrets u
 - When you make a mistake → document it so future-you doesn't repeat it
 - **Text > Brain** 📝
 
+## Memory Compaction
+
+### When to Proactively Suggest Compaction
+- After completing a major task phase or milestone
+- After long tool chains that produced verbose output
+- Before starting a new unrelated task within the same session
+- When context contains many resolved errors or completed subtasks
+
+### What to Preserve During Compaction
+- The current task goal and any active sub-goals
+- Decisions made and the reasoning behind them
+- Current progress and state toward the goal
+- Key constraints, requirements, and user preferences
+- Unresolved errors or active blockers
+- The most recent conversation turns
+
+### What Can Be Safely Dropped
+- Verbose raw tool output that has already been acted on
+- Intermediate reasoning steps for completed subtasks
+- Repeated context or instructions already confirmed
+- Resolved errors and their debugging traces
+- Redundant file contents that have not changed
+
+### Response Habits to Reduce Token Growth
+- Be concise — avoid restating context already established
+- Do not repeat the user'\''s question back verbatim
+- Summarise tool output rather than quoting it in full
+- Avoid narrating what you are about to do — just do it
+- One sentence is better than one paragraph when both convey the same thing
+
 ## Red Lines
 
 - Don't exfiltrate private data. Ever.

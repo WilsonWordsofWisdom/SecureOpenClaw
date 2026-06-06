@@ -1,3 +1,8 @@
 workspace/setupPrompts.md
 testcases/tests.md
 openclaw.json
+agents/main/agent/auth-profiles.json
+
+openclaw_commands
+sudo su ho_kok_hing_mddi_gov_sg
+sudo su mol_kokhing
